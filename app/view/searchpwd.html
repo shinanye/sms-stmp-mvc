@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgba(22, 21, 21, 0.151);
+        }
+    .repwd{
+        width: 300px;
+        margin:20px auto;
+        background-color: #393939;
+        color: white;
+        padding: 20px;
+        border:1px solid blue;
+        border-radius: 10px; 
+    }
+    .txt{
+        width: 300px;
+        margin:100px auto 20px auto;
+        text-align: center;
+        
+    }
+    .repwd>input{
+        margin:2% 10%;
+        width: 80%;
+        outline: none;
+        height: 25px;
+        border-radius: 10px;
+        padding-left: 2%;
+    }
+    #error{
+            margin-left: 20px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <form  method="post">
+        <div class="txt">
+            <label><strong>Reset your password</strong></label>
+        </div>
+        <div class="repwd">
+            <label for="email">Enter your email address and we will send you a link to reset your password.</label>
+            <input type="email" name="email" id="email">
+            <br>
+            <span id="error"></span>
+            <br>
+            <input type="submit" name="submit" id="submit" value=" send password reset email ">
+        </div>
+    </form>
+</body>
+<script src="libs/node_modules/jquery/jquery.min.js"></script>
+<script src="libs/validate/jquery.validate-1.13.1.js"></script>
+<script>
+   $("form").validate({
+    rules:{
+        email:{
+            required:true
+        }
+    },
+    messages:{
+        email:{
+            required:"*邮箱不能为空"
+        }
+    },
+    errorPlacement: function(error, element) {
+        var errorNewPlace=element.siblings("#error");   //查找和当前标签平级的id为error的标签
+        error.appendTo(errorNewPlace);
+    },
+    submitHandler:function(form){
+        form.submit();
+    }
+})
+</script>
+</html>

@@ -1,0 +1,26 @@
+*{text-align: center;}
+header{
+    height: 50px;
+    margin: auto;
+    background-color: yellow;
+    display: flex;
+}
+header>.left{
+    width: 79%;
+    border: 2px solid white;
+}
+header>.right{
+    width: 19%;
+    border: 0.5% solid black;
+    display: flex;
+    justify-content:flex-end;
+    align-items:flex-end;
+}
+main{
+    height: 500px;
+    background-color: pink;
+}
+footer{
+    height: 70px;
+    background-color: aquamarine;
+}
